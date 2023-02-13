@@ -22,23 +22,25 @@ export default function DropDownInput({ yearCallback }: Props) {
         <p>{selectedValue}</p>
         <ArrowUpIcon />
       </div>
-      <ul className={s.inputBody}>
-        {DUMMY_YEARS.map((year) => {
-          return (
-            <li
-              key={year}
-              onClick={() => {
-                yearCallback(year)
-                setSelectedValue(year)
-                setContainerIsActive(false)
-              }}
-              className={selectedValue == year ? s.active : ''}
-            >
-              {year}
-            </li>
-          )
-        })}
-      </ul>
+      <div className={`${s.inputBody} ${containerIsActive ? s.active : ''}`}>
+        <ul>
+          {DUMMY_YEARS.map((year) => {
+            return (
+              <li
+                key={year}
+                onClick={() => {
+                  yearCallback(year)
+                  setSelectedValue(year)
+                  setContainerIsActive(false)
+                }}
+                className={selectedValue == year ? s.active : ''}
+              >
+                {year}
+              </li>
+            )
+          })}
+        </ul>
+      </div>
     </div>
   )
 }

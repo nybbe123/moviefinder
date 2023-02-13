@@ -9,7 +9,7 @@ interface Props {
 export default function SearchInput({ searchCallback }: Props) {
   return (
     <>
-      <label className={s.rootContainer}>
+      <label className={s.inputRoot}>
         <input
           className={s.inputBar}
           type="text"

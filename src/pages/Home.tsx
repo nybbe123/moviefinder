@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Button from '../components/UI/Button'
 import DropDownInput from '../components/UI/InputDropDown'
@@ -14,6 +14,7 @@ export default function Home() {
   const navigate = useNavigate()
   const [searchValue, setSearchValue] = useState('')
   const [yearValue, setYearValue] = useState('')
+  const [isDisabled, setIsDisabled] = useState(true)
 
   async function fetchMovieHandler() {
     const searchData: SearchData = {
@@ -39,6 +40,14 @@ export default function Home() {
     }
   }
 
+  useEffect(() => {
+    if (searchValue !== '' || yearValue !== '') {
+      setIsDisabled(false)
+    } else {
+      setIsDisabled(true)
+    }
+  }, [searchValue, yearValue])
+
   function handleSearchCallback(val: string) {
     setSearchValue(val)
   }
@@ -49,6 +58,10 @@ export default function Home() {
 
   return (
     <div className={s.rootContainer}>
+      <div className={s.textContent}>
+        <h1>MOVIEFINDER</h1>
+        <p>Find information for thousands of movies</p>
+      </div>
       <div className={s.inputWrapper}>
         <SearchInput searchCallback={handleSearchCallback} />
         <div className={s.breakLine} />
@@ -56,10 +69,15 @@ export default function Home() {
         <Button
           customClass={s.searchBtn}
           onClick={fetchMovieHandler}
+          isDisabled={isDisabled}
         >
           Search
         </Button>
       </div>
+      <p className={s.descriptionContent}>
+        Find your movie by <span>searching</span> its title <em>(mandatory)</em>
+        . Use the <span>year input</span> to be more precise <em>(optional)</em>
+      </p>
     </div>
   )
 }

@@ -6,19 +6,22 @@ type ButtonProps = {
   children?: ReactNode
   type?: 'button' | 'submit' | 'reset'
   customClass?: string
+  isDisabled?: boolean
 }
 
 export default function Button({
   children,
   type,
   onClick,
-  customClass
+  customClass,
+  isDisabled
 }: ButtonProps): React.ReactElement<ButtonProps> {
   return (
     <button
       type={!type ? 'button' : type}
       onClick={onClick}
       className={`${s.btn} ${customClass}`}
+      disabled={isDisabled ? true : false}
     >
       {children}
     </button>
