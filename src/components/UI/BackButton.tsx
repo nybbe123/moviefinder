@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import s from './BackButton.module.scss'
-import ArrowIcon from '../../assets/svg/arrow.svg'
+import { ReactComponent as ArrowIcon } from '../../assets/svg/arrow.svg'
 
 export default function BackButton() {
   const navigate = useNavigate()

@@ -24,12 +24,6 @@
   }
 
   &:focus-within {
-    svg {
-      path {
-        fill: $whiteText
-      }
-    }
-
     input {
       border-color: $primaryColor;
       outline: none;

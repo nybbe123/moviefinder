@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import s from './SearchInput.module.scss'
 import { ReactComponent as SearchIcon } from '../../assets/svg/search.svg'
 
