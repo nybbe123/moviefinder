@@ -6,13 +6,14 @@ import SearchInput from '../components/UI/SearchInput'
 import s from './Home.module.scss'
 import { ReactComponent as ErrorIcon } from '../assets/svg/error.svg'
 import { ReactComponent as AttentionIcon } from '../assets/svg/attention.svg'
+import { UseFetchMovie } from '../components/hooks/useFetchMovie'
 
 export default function Home() {
   const navigate = useNavigate()
-  const [searchValue, setSearchValue] = useState('')
-  const [yearValue, setYearValue] = useState('')
-  const [isDisabled, setIsDisabled] = useState(true)
-  const [error, setError] = useState(false)
+  const [searchValue, setSearchValue] = useState<string>('')
+  const [yearValue, setYearValue] = useState<string>('')
+  const [isDisabled, setIsDisabled] = useState<boolean>(true)
+  const [error, setError] = useState<boolean>(false)
 
   async function fetchMovieHandler(title: string, year?: string) {
     setError(false)

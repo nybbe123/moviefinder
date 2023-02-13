@@ -15,7 +15,7 @@
   cursor: pointer;
 
   .btnCircle {
-    border: 3px solid $whiteText;
+    border: .3rem solid $whiteText;
     border-radius: 10rem;
     width: 4rem;
     height: 4rem;
@@ -23,6 +23,22 @@
     align-items: center;
     justify-content: center;
     transition: $transitionTimeMedium;
+
+    svg {
+      path {
+        transition: $transitionTimeMedium;
+      }
+    }
+
+    @media (max-width: $breakpointMobileLarge) {
+      border-width: .2rem;
+      width: 3rem;
+      height: 3rem;
+
+      svg {
+        scale: 75%;
+      }
+    }
   }
 
   &:hover {

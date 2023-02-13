@@ -18,8 +18,8 @@ export default function Movie() {
       <div className={s.topModal} />
       <div className={s.bottomModal} />
       <div className={s.contentContainer}>
-        <BackButton />
         <div className={s.contentWrapper}>
+          <BackButton />
           <h1>{movie.Title}</h1>
           <p className={s.genre}>{movie.Genre}</p>
           <div className={s.info}>
