@@ -1,0 +1,52 @@
+@import '../../styles.scss';
+
+.rootContainer {
+  position: relative;
+  width: 100%;
+  max-width: 35rem;
+  transition: $transitionTimeMedium;
+
+  svg {
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: $transitionTimeMedium;
+  
+    path {
+      fill: $greyText;
+    }
+  }
+
+  &:focus-within {
+    svg {
+      path {
+        fill: $whiteText
+      }
+    }
+
+    input {
+      border-color: $primaryColor;
+      outline: none;
+      color: $whiteText;
+    }
+  }
+
+  &:hover:not(:focus-within) {
+    .inputBar {
+      border-color: $greyText;
+    }
+  }
+}
+
+.inputBar {
+  transition: $transitionTimeMedium;
+  border: 1px solid $cardBg;
+  background-color: $cardBg;
+  font-size: 1.7rem;
+  padding: 2rem 2rem 2rem 4.5rem;
+  width: 100%;
+  border-radius: $borderRadiusSmall;
+  font-weight: 500;
+  color: $greyText;
+}

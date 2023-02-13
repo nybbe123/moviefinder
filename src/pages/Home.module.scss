@@ -1,3 +1,28 @@
-.btn {
-  background-color: aquamarine;
+@import '../styles.scss';
+
+.rootContainer {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputWrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  border-radius: 10px;
+  background-color: $cardBg;
+  box-shadow: $shadowBox;
+  width: 100%;
+  height: 10rem;
+  max-width: 75rem;
+  gap: 2rem;
+
+  .breakLine {
+    height: 100%;
+    width: 1px;
+    background-color: $lineColor;
+  }
 }

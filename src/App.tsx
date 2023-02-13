@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
-import About from './pages/About'
+import Movie from './pages/Movie'
 import Layout from './pages/Layout'
 
 export default function App() {
@@ -16,8 +16,8 @@ export default function App() {
             element={<Home />}
           />
           <Route
-            path="/about"
-            element={<About />}
+            path="/movie"
+            element={<Movie />}
           />
         </Route>
       </Routes>

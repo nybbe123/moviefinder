@@ -1,0 +1,13 @@
+@import '../../styles.scss';
+
+.backBtn {
+  background-color: transparent;
+  border: .3rem solid $whiteText;
+}
+
+.btnCircle {
+  border: 2px solid #FDFDFD;
+  border-radius: 23px;
+  width: 3.5rem;
+  height: 3.5rem;
+}

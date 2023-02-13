@@ -1,0 +1,41 @@
+@import '../../styles.scss';
+
+.headerContainer {
+  position: absolute;
+  z-index: 1;
+  top: 4rem;
+  left: 0;
+  right: 0;
+  width: 100%;
+  color: $whiteText;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerWrapper {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 190rem;
+  padding: 4rem;
+
+  .logoContainer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  
+    h1 {
+      font-size: 3.2rem;
+      margin-bottom: .1rem;
+    }
+  }
+
+  .searchContainer {
+    svg {
+      scale: 175%;
+    }
+  }
+}
