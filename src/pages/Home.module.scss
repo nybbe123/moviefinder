@@ -27,14 +27,15 @@
   justify-content: center;
 
   h1 {
-    font-size: 4.8rem;
+    font-size: $fontLg;
     font-weight: 800;
     color: $whiteText;
     letter-spacing: .1rem;
   }
 
   p {
-    font-size: 1.9rem;
+    padding-top: .5rem;
+    font-size: $fontSm;
     color: $greyText;
     text-align: center;
   }
@@ -43,11 +44,11 @@
     top: 7rem;
 
     h1 {
-      font-size: 3.2rem;
+      font-size: $fontMd;
     }
 
     p {
-      font-size: 1.6rem;
+      font-size: $fontSm;
       margin-top: .5rem;
     }
   }
@@ -57,7 +58,7 @@
   display: flex;
   justify-content: space-between;
   padding: 2rem;
-  border-radius: 10px;
+  border-radius: 1rem;
   background-color: $cardBg;
   box-shadow: $shadowBox;
   width: 100%;
@@ -69,7 +70,7 @@
 
   .breakLine {
     height: 100%;
-    width: 1px;
+    width: .1rem;
     background-color: $lineColor;
   }
 
@@ -96,7 +97,7 @@
 }
 
 .descriptionContent {
-  font-size: 1.4rem;
+  font-size: $fontXs;
   color: $greyText;
   text-align: center;
   padding: 0 1rem;

@@ -2,6 +2,7 @@ import { useLocation } from 'react-router-dom'
 import s from './Movie.module.scss'
 import img from '../assets/thor.png'
 import Header from '../components/layout/Header'
+import BackButton from '../components/UI/BackButton'
 
 export default function Movie() {
   const location = useLocation()
@@ -17,6 +18,7 @@ export default function Movie() {
       <div className={s.topModal} />
       <div className={s.bottomModal} />
       <div className={s.contentContainer}>
+        <BackButton />
         <div className={s.contentWrapper}>
           <h1>{movie.Title}</h1>
           <p className={s.genre}>{movie.Genre}</p>

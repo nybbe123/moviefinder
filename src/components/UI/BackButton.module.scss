@@ -2,12 +2,40 @@
 
 .backBtn {
   background-color: transparent;
-  border: .3rem solid $whiteText;
-}
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: $fontSm;
+  color: $whiteText;
+  font-weight: 600;
+  transition: $transitionTimeMedium;
+  cursor: pointer;
 
-.btnCircle {
-  border: 2px solid #FDFDFD;
-  border-radius: 23px;
-  width: 3.5rem;
-  height: 3.5rem;
+  .btnCircle {
+    border: 3px solid $whiteText;
+    border-radius: 10rem;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: $transitionTimeMedium;
+  }
+
+  &:hover {
+    color: $primaryHover;
+
+    .btnCircle {
+      border-color: $primaryHover;
+
+      svg {
+        path {
+          fill: $primaryHover;
+        }
+      }
+    }
+  }
 }

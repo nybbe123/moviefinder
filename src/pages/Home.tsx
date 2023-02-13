@@ -14,10 +14,12 @@ export default function Home() {
   const [isDisabled, setIsDisabled] = useState(true)
   const [error, setError] = useState(false)
 
-  async function fetchMovieHandler() {
+  async function fetchMovieHandler(title: string, year?: string) {
     setError(false)
     return await fetch(
-      `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&t=thor`
+      `http://www.omdbapi.com/?apikey=${
+        process.env.REACT_APP_API_KEY
+      }&t=${title}${year ? `&y=${year}` : ''}`
     )
       .then((response) => {
         if (!response.ok) {
@@ -66,7 +68,7 @@ export default function Home() {
         <DropDownInput yearCallback={handleYearCallback} />
         <Button
           customClass={s.searchBtn}
-          onClick={fetchMovieHandler}
+          onClick={() => fetchMovieHandler(searchValue, yearValue)}
           isDisabled={isDisabled}
         >
           Search
