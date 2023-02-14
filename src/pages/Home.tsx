@@ -6,7 +6,7 @@ import SearchInput from '../components/UI/SearchInput'
 import s from './Home.module.scss'
 import { ReactComponent as ErrorIcon } from '../assets/svg/error.svg'
 import { ReactComponent as AttentionIcon } from '../assets/svg/attention.svg'
-import { UseFetchMovie } from '../components/hooks/useFetchMovie'
+import Card from '../components/UI/Card'
 
 export default function Home() {
   const navigate = useNavigate()
@@ -63,7 +63,7 @@ export default function Home() {
         <h1>MOVIEFINDER</h1>
         <p>Find information for thousands of movies</p>
       </div>
-      <div className={s.inputWrapper}>
+      <Card customClass={s.inputWrapper}>
         <SearchInput searchCallback={handleSearchCallback} />
         <div className={s.breakLine} />
         <DropDownInput yearCallback={handleYearCallback} />
@@ -74,7 +74,7 @@ export default function Home() {
         >
           Search
         </Button>
-      </div>
+      </Card>
       {error ? (
         <div className={s.descriptionContent}>
           <ErrorIcon />
@@ -89,7 +89,7 @@ export default function Home() {
           <p>
             Find your movie by <span>searching</span> its title{' '}
             <em>(mandatory)</em>. Use the <span>year input</span> to be more
-            precise <em>(optional)</em>
+            precise <em>(optional).</em>
           </p>
         </div>
       )}

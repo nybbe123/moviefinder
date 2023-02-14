@@ -3,6 +3,7 @@
 .movieContainer {
   position: relative;
   height: 100vh;
+  max-height: --webkit-fill-available;
   width: 100%;
   overflow: hidden;
 }
@@ -45,7 +46,9 @@
   z-index: 1;
   color: $whiteText;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  max-height: --webkit-fill-available;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;

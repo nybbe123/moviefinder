@@ -1,0 +1,9 @@
+@import '../../styles.scss';
+
+.cardContainer {
+  padding: 2rem;
+  border-radius: .6rem;
+  background-color: $cardBg;
+  box-shadow: $shadowBox;
+  max-width: 75rem;
+}

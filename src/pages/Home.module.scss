@@ -3,6 +3,7 @@
 .rootContainer {
   position: relative;
   height: 100vh;
+  max-height: --webkit-fill-available;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -57,16 +58,23 @@
 .inputWrapper {
   display: flex;
   justify-content: space-between;
-  padding: 2rem;
-  border-radius: 1rem;
-  background-color: $cardBg;
-  box-shadow: $shadowBox;
-  width: 100%;
-  height: 10rem;
-  max-width: 75rem;
   gap: 2rem;
   margin-bottom: 3rem;
   margin-top: 3rem;
+  height: 10rem;
+  width: 100%;
+  // display: flex;
+  // justify-content: space-between;
+  // padding: 2rem;
+  // border-radius: 1rem;
+  // background-color: $cardBg;
+  // box-shadow: $shadowBox;
+  // width: 100%;
+  // height: 10rem;
+  // max-width: 75rem;
+  // gap: 2rem;
+  // margin-bottom: 3rem;
+  // margin-top: 3rem;
 
   .breakLine {
     height: 100%;

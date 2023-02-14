@@ -7,12 +7,10 @@
   box-sizing: border-box;
 }
 
-html {
+html,
+body {
   font-size: 10px;
   font-family: 'Lato', sans-serif;
-}
-
-body {
   background-color: $pageBg;
 }
 
