@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Movie from './pages/Movie'
 import Layout from './pages/Layout'
+import PageNotFound from './pages/error/PageNotFound'
 
 export default function App() {
   return (
@@ -20,6 +21,10 @@ export default function App() {
             element={<Movie />}
           />
         </Route>
+        <Route
+          path="*"
+          element={<PageNotFound />}
+        />
       </Routes>
     </BrowserRouter>
   )

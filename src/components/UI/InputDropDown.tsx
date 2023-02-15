@@ -1,5 +1,4 @@
 import s from './InputDropDown.module.scss'
-import { DUMMY_YEARS } from '../../data/dummyData'
 import { useState } from 'react'
 import { ReactComponent as ArrowUpIcon } from '../../assets/svg/arrow.svg'
 
@@ -8,8 +7,10 @@ interface Props {
 }
 
 export default function DropDownInput({ yearCallback }: Props) {
-  const [selectedValue, setSelectedValue] = useState('Year')
-  const [containerIsActive, setContainerIsActive] = useState(false)
+  const [selectedValue, setSelectedValue] = useState<string>('Year')
+  const [containerIsActive, setContainerIsActive] = useState<boolean>(false)
+  const year = new Date().getFullYear() - 99
+  const years = Array.from(new Array(100), (_value, index) => index + year)
 
   return (
     <div className={`${s.rootContainer} ${containerIsActive ? s.active : ''}`}>
@@ -24,7 +25,7 @@ export default function DropDownInput({ yearCallback }: Props) {
       </div>
       <div className={`${s.inputBody} ${containerIsActive ? s.active : ''}`}>
         <ul>
-          {DUMMY_YEARS.map((year) => {
+          {/* {DUMMY_YEARS.map((year) => {
             return (
               <li
                 key={year}
@@ -34,6 +35,22 @@ export default function DropDownInput({ yearCallback }: Props) {
                   setContainerIsActive(false)
                 }}
                 className={selectedValue == year ? s.active : ''}
+              >
+                {years}
+              </li>
+            )
+          })} */}
+          {years.reverse().map((year, index) => {
+            return (
+              <li
+                key={index}
+                value={year}
+                className={selectedValue == String(year) ? s.active : ''}
+                onClick={() => {
+                  yearCallback(String(year))
+                  setSelectedValue(String(year))
+                  setContainerIsActive(false)
+                }}
               >
                 {year}
               </li>

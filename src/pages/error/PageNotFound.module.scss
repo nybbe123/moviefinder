@@ -1,0 +1,51 @@
+@import '../../styles.scss';
+
+.pageNotFoundContainer {
+  height: 100vh;
+  max-height: --webkit-fill-available;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+}
+.pageNotFoundWrapper{
+  width: 100%;
+  max-width: $maxWindowWidth;
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    color: $whiteText;
+    font-size: $fontXl;
+    margin-bottom: 1rem;
+  }
+
+  .subTitle {
+    color: $whiteText;
+    font-size: $fontMd;
+    margin-bottom: 1.5rem;
+  }
+
+  .breadText {
+    color: $greyText;
+    font-size: $fontSm;
+    max-width: 40rem;
+    line-height: 2.4rem;
+    margin-bottom: 3rem;
+  }
+
+  .linkBtn {
+    color: $whiteText;
+    font-size: $fontSm;
+    border: 2px solid $whiteText;
+    border-radius: 100rem;
+    padding: 2rem 4rem;
+    width: fit-content;
+    transition: $transitionTimeMedium;
+
+    &:hover {
+      color: $primaryColor;
+      border-color: $primaryColor;
+    }
+  }
+}
