@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import s from './Home.module.scss'
 import { ReactComponent as ErrorIcon } from '../assets/svg/error.svg'
 import { ReactComponent as AttentionIcon } from '../assets/svg/attention.svg'
@@ -10,6 +10,10 @@ export default function Home() {
   function searchBarCallbackHandler(error: boolean) {
     setError(error)
   }
+
+  useEffect(() => {
+    document.title = `Moviefinder`
+  }, [])
 
   return (
     <div className={s.rootContainer}>

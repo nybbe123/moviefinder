@@ -1,12 +1,16 @@
 import { useLocation } from 'react-router-dom'
-import { useEffect } from 'react'
 import s from './Movie.module.scss'
 import Header from '../components/layout/Header'
 import BackButton from '../components/UI/BackButton'
+import { useEffect } from 'react'
 
 export default function Movie() {
   const location = useLocation()
   const { movie } = location.state
+
+  useEffect(() => {
+    document.title = `movies - ${movie.Title}`
+  }, [])
 
   return (
     <div className={s.movieContainer}>

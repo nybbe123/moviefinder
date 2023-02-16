@@ -1,8 +1,13 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Header from '../../components/layout/Header'
 import s from './PageNotFound.module.scss'
 
 export default function NotFound() {
+  useEffect(() => {
+    document.title = `404 - Page not found`
+  }, [])
+
   return (
     <>
       <Header />
