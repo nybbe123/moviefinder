@@ -1,6 +1,5 @@
 import { useLocation } from 'react-router-dom'
 import s from './Movie.module.scss'
-import img from '../assets/thor.png'
 import Header from '../components/layout/Header'
 import BackButton from '../components/UI/BackButton'
 
@@ -10,13 +9,6 @@ export default function Movie() {
 
   return (
     <div className={s.movieContainer}>
-      <img
-        src={img}
-        alt="logo"
-        className={s.movieBg}
-      />
-      <div className={s.topModal} />
-      <div className={s.bottomModal} />
       <div className={s.contentContainer}>
         <div className={s.contentWrapper}>
           <BackButton />
@@ -29,7 +21,14 @@ export default function Movie() {
           </div>
           <p className={s.description}>{movie.Plot}</p>
         </div>
+        <img
+          src={movie.Poster}
+          alt={movie.Title}
+          className={s.movieBg}
+        />
       </div>
+      <div className={s.topModal} />
+      <div className={s.imageModal} />
       <Header />
     </div>
   )
