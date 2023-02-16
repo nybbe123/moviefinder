@@ -1,15 +1,26 @@
 # Moviefinder
 
-# About
+![Landingpage](/src/assets/homescreen.PNG)
+
+## About
 Moviefinder is a simple webapplication where you can search for basic information about a movie through its title and year.
 
-## Available Scripts
+[View repo](https://github.com/nybbe123/moviefinder)
 
-In the project directory, run:
+[View Figma](https://www.figma.com/file/cDNiRclqUxpK0CTZXMO5N2/Untitled?node-id=0%3A1&t=FWIHbcnYNasvpU6F-1)
 
-### `npm install`
+## To get started...
+### `Ask me about my .ENV`
 
-### `npm start`
+### then, in the project folder, run:
+
+```bash
+npm i
+```
+
+```bash
+npm start
+```
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
