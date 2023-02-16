@@ -9,9 +9,18 @@ export default function Movie() {
 
   return (
     <div className={s.movieContainer}>
+      {/* <div className={s.imgBgContainer}>
+        <img
+          src={movie.Poster}
+          alt={movie.Title}
+          className={s.imgBg}
+        />
+      </div> */}
       <div className={s.contentContainer}>
         <div className={s.contentWrapper}>
-          <BackButton />
+          <div className={s.backBtnContainer}>
+            <BackButton />
+          </div>
           <h1>{movie.Title}</h1>
           <p className={s.genre}>{movie.Genre}</p>
           <div className={s.info}>
@@ -21,11 +30,18 @@ export default function Movie() {
           </div>
           <p className={s.description}>{movie.Plot}</p>
         </div>
-        <img
-          src={movie.Poster}
-          alt={movie.Title}
-          className={s.movieBg}
-        />
+        <div className={s.imgBgContainer}>
+          <img
+            src={movie.Poster}
+            alt={movie.Title}
+            className={s.movieBg}
+          />
+          <img
+            src={movie.Poster}
+            alt={movie.Title}
+            className={s.imgBg}
+          />
+        </div>
       </div>
       <div className={s.topModal} />
       <div className={s.imageModal} />
