@@ -1,4 +1,5 @@
 import { useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import s from './Movie.module.scss'
 import Header from '../components/layout/Header'
 import BackButton from '../components/UI/BackButton'
@@ -9,13 +10,6 @@ export default function Movie() {
 
   return (
     <div className={s.movieContainer}>
-      {/* <div className={s.imgBgContainer}>
-        <img
-          src={movie.Poster}
-          alt={movie.Title}
-          className={s.imgBg}
-        />
-      </div> */}
       <div className={s.contentContainer}>
         <div className={s.contentWrapper}>
           <div className={s.backBtnContainer}>
@@ -30,18 +24,20 @@ export default function Movie() {
           </div>
           <p className={s.description}>{movie.Plot}</p>
         </div>
-        <div className={s.imgBgContainer}>
-          <img
-            src={movie.Poster}
-            alt={movie.Title}
-            className={s.movieBg}
-          />
-          <img
-            src={movie.Poster}
-            alt={movie.Title}
-            className={s.imgBg}
-          />
-        </div>
+        {!!movie.Poster && movie.Poster !== 'N/A' && (
+          <div className={s.imgBgContainer}>
+            <img
+              src={movie.Poster}
+              alt={movie.Title}
+              className={s.imgBg}
+            />
+            <img
+              src={movie.Poster}
+              alt={movie.Title}
+              className={s.movieBg}
+            />
+          </div>
+        )}
       </div>
       <div className={s.topModal} />
       <div className={s.imageModal} />

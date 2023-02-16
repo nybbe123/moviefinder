@@ -1,80 +1,23 @@
-import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import Button from '../components/UI/Button'
-import DropDownInput from '../components/UI/InputDropDown'
-import SearchInput from '../components/UI/SearchInput'
+import { useState } from 'react'
 import s from './Home.module.scss'
 import { ReactComponent as ErrorIcon } from '../assets/svg/error.svg'
 import { ReactComponent as AttentionIcon } from '../assets/svg/attention.svg'
-import Card from '../components/UI/Card'
+import SearchBar from '../components/layout/SearchBar'
 
 export default function Home() {
-  const navigate = useNavigate()
-  const [searchValue, setSearchValue] = useState<string>('')
-  const [yearValue, setYearValue] = useState<string>('')
-  const [isDisabled, setIsDisabled] = useState<boolean>(true)
   const [error, setError] = useState<boolean>(false)
 
-  async function fetchMovieHandler(title: string, year?: string) {
-    setError(false)
-    return await fetch(
-      `http://www.omdbapi.com/?apikey=${
-        process.env.REACT_APP_API_KEY
-      }&t=${title}${year ? `&y=${year}` : ''}`
-    )
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(response.statusText)
-        } else {
-          return response.json()
-        }
-      })
-      .then((data) => {
-        if (data.Response && data.Response == 'False') {
-          setError(true)
-        } else {
-          navigate('/movie', { state: { movie: data } })
-        }
-      })
-      .catch((e) => {
-        console.log(e)
-      })
-  }
-
-  useEffect(() => {
-    if (searchValue !== '' || yearValue !== '') {
-      setIsDisabled(false)
-    } else {
-      setIsDisabled(true)
-    }
-  }, [searchValue, yearValue])
-
-  function handleSearchCallback(val: string) {
-    setSearchValue(val)
-  }
-
-  function handleYearCallback(val: string) {
-    setYearValue(val)
+  function searchBarCallbackHandler(error: boolean) {
+    setError(error)
   }
 
   return (
     <div className={s.rootContainer}>
+      <SearchBar searchBarCallback={searchBarCallbackHandler} />
       <div className={s.textContent}>
         <h1>MOVIEFINDER</h1>
         <p>Find information for thousands of movies</p>
       </div>
-      <Card customClass={s.inputWrapper}>
-        <SearchInput searchCallback={handleSearchCallback} />
-        <div className={s.breakLine} />
-        <DropDownInput yearCallback={handleYearCallback} />
-        <Button
-          customClass={s.searchBtn}
-          onClick={() => fetchMovieHandler(searchValue, yearValue)}
-          isDisabled={isDisabled}
-        >
-          Search
-        </Button>
-      </Card>
       {error ? (
         <div className={s.descriptionContent}>
           <ErrorIcon />

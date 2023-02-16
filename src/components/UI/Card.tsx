@@ -2,7 +2,7 @@ import s from './Card.module.scss'
 
 interface Props {
   children: React.ReactNode
-  customClass: string
+  customClass?: string
 }
 
 export default function Card({ children, customClass }: Props) {

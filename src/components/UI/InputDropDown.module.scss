@@ -17,6 +17,7 @@
   transition: $transitionTimeMedium;
   border: 1px solid $cardBg;
   flex-shrink: 0;
+  z-index: 1;
 
   @media(max-width: $breakpointMobileLarge) {
     width: 100%;

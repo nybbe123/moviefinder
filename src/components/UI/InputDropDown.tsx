@@ -9,8 +9,13 @@ interface Props {
 export default function DropDownInput({ yearCallback }: Props) {
   const [selectedValue, setSelectedValue] = useState<string>('Year')
   const [containerIsActive, setContainerIsActive] = useState<boolean>(false)
-  const year = new Date().getFullYear() - 99
-  const years = Array.from(new Array(100), (_value, index) => index + year)
+  const year: number = new Date().getFullYear() - 99
+  const years: string[] = Array.from(new Array(100), (_value, index) => {
+    const i: number = index + year
+    return String(i)
+  })
+
+  years.push('Year')
 
   return (
     <div className={`${s.rootContainer} ${containerIsActive ? s.active : ''}`}>
@@ -25,30 +30,25 @@ export default function DropDownInput({ yearCallback }: Props) {
       </div>
       <div className={`${s.inputBody} ${containerIsActive ? s.active : ''}`}>
         <ul>
-          {/* {DUMMY_YEARS.map((year) => {
-            return (
-              <li
-                key={year}
-                onClick={() => {
-                  yearCallback(year)
-                  setSelectedValue(year)
-                  setContainerIsActive(false)
-                }}
-                className={selectedValue == year ? s.active : ''}
-              >
-                {years}
-              </li>
-            )
-          })} */}
+          {/* <li
+            className={selectedValue == 'Year' ? s.active : ''}
+            onClick={() => {
+              yearCallback('Year')
+              setSelectedValue('Year')
+              setContainerIsActive(false)
+            }}
+          >
+            Year
+          </li> */}
           {years.reverse().map((year, index) => {
             return (
               <li
                 key={index}
                 value={year}
-                className={selectedValue == String(year) ? s.active : ''}
+                className={selectedValue == year ? s.active : ''}
                 onClick={() => {
-                  yearCallback(String(year))
-                  setSelectedValue(String(year))
+                  yearCallback(year)
+                  setSelectedValue(year)
                   setContainerIsActive(false)
                 }}
               >

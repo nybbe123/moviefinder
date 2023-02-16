@@ -2,8 +2,8 @@
 
 .headerContainer {
   position: absolute;
-  z-index: 1;
-  top: 4rem;
+  z-index: 2;
+  top: 6rem;
   left: 0;
   right: 0;
   width: 100%;
@@ -21,6 +21,7 @@
   width: 100%;
   max-width: $maxWindowWidth;
   padding: 4rem;
+  z-index: 1;
 
   .logoContainer {
     display: flex;
@@ -38,6 +39,28 @@
   .searchContainer {
     svg {
       scale: 175%;
+      cursor: pointer;
+
+      &:hover {
+        path {
+          transition: $transitionTimeMedium;
+          fill: $primaryColor;
+        }
+      }
+    }
+
+    &.inactive {
+      svg {
+        scale: 100%;
+        cursor: pointer;
+
+        &:hover {
+          path {
+            transition: $transitionTimeMedium;
+            stroke: $primaryColor;
+          }
+        }
+      }
     }
   }
 
@@ -62,4 +85,62 @@
       }
     }
   }
+}
+
+.headerSearchBarContainer {
+  display: none;
+  transition: $transitionTimeMedium;
+
+  &.active {
+    display: inline-block;
+  }
+
+  .customSearchBar {
+    position: absolute;
+    height: 10rem;
+    top: 40vh;
+    left: 50%;
+    translate: -50% -50%;
+    width: calc(100% - 4rem);
+    border: 1px solid $primaryColor;
+
+    @media(max-width: $breakpointMobileLarge) {
+      top: 20rem;
+      height: auto;
+    }
+  }
+
+  .errorContainer {
+    position: absolute;
+    left: 50%;
+    top: 49vh;
+    translate: -50% -50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+
+    @media(max-width: $breakpointMobileLarge) {
+      top: 40rem;
+      flex-direction: column;
+      padding: 0 4rem;
+    }
+    
+    .errorMessage {
+      font-size: $fontXs;
+      color: $errorText;
+      text-align: center;
+    }
+  }
+}
+
+.searchModal {
+  position: absolute;
+  height: 100vh;
+  max-height: --webkit-fill-available;
+  width: 100%;
+  top: -6rem;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.90);
 }
