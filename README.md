@@ -1,6 +1,6 @@
 # Moviefinder
 
-![Landingpage](/assets/homescreen.png)
+![Landingpage](/src/assets/homescreen.png)
 
 ## About
 Moviefinder is a simple webapplication where you can search for basic information about a movie through its title and year.
